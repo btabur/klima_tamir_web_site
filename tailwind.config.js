@@ -7,6 +7,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        tinos: ["Tinos", "serif"],
+        anton: ["Anton", "sans-serif"],
+        fira: ["Fira Sans", "cursive"],
+        sofadi: ["Sofadi One", "system-ui"],
+        mynerve: ["Mynerve", "cursive"],
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
