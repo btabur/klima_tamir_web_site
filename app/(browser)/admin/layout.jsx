@@ -3,10 +3,10 @@ import TopHeader from '../../components/TopHeader'
 
 export default function AdminLayout({ children }) {
     return (
-        <div className="admin-layout">
+        <main className="admin-layout">
             <TopHeader />
-            <h1>Admin Panel</h1>
+            <h1 className='text-black text-2xl font-bold'>Admin Panel</h1>
             {children}
-        </div>
+        </main>
     );
 }
