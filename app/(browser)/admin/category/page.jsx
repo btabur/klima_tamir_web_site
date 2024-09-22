@@ -49,7 +49,29 @@ const CategoryPage = () => {
             setError(`Upload failed: ${error.message}`)
         }
     }
-    
+
+    const handleDelete = async () => {
+        if (!imageUrl) {
+            setError('No image URL provided')
+            return
+        }
+        try {
+            const response = await fetch('/api/deleteImage', {  
+                method: 'DELETE',
+                body: JSON.stringify({ imageUrl })
+            })
+            if (!response.ok) {
+                const errorText = await response.text()
+                throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`)
+            }
+            const result = await response.json()    
+            console.log('Delete result:', result)
+            setImageUrl(null)
+        } catch (error) {
+            console.error('Fetch error:', error)
+            setError(`Delete failed: ${error.message}`)
+        }
+    }
 
     return (
         <div>
@@ -63,7 +85,8 @@ const CategoryPage = () => {
             <div className='mt-10 border h-72'>
                 {image && <Image src={image} alt='file' width={100} height={100} />}
             </div>
-            {imageUrl && <p>Uploaded image URL: {imageUrl}</p>}
+                {imageUrl && <p>Uploaded image URL: {imageUrl}</p>}
+            <button onClick={handleDelete}>Delete</button>
         </div>
     )
 }
