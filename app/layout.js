@@ -3,6 +3,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "./components/Header";
 import TopHeader from "./components/TopHeader";
+import TopMenu from "./components/TopMenu";
+import Menu from "./components/Menu";
 import { usePathname } from 'next/navigation';
 
 const geistSans = localFont({
@@ -23,12 +25,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased `}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white `}
       >
         {!isAdminPage && (
-          <>
+          <>  
+            <TopMenu/>
             <TopHeader/>
             <Header/>
+            <Menu/>
           </>
         )}
         {children}

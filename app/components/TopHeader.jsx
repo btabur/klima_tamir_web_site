@@ -16,9 +16,9 @@ const TopHeader = () => {
             border-red-600 hover:bg-red-600 hover:text-white transition-all cursor-pointer text-red-600 "
         >
           <FaCalendar />
-          <p>ACİL SERVİS ÇAĞIR</p>
+          <p className="text-xs md:text-base">ACİL SERVİS ÇAĞIR</p>
         </div>
-        <div className="flex items-center gap-2 cursor-pointer hover:text-gray-500 transition-all">
+        <div className="md:flex items-center gap-2 hidden text-black cursor-pointer hover:text-gray-500 transition-all">
           <IoMdMail className="text-xl" />
           <p>info@klimateknikservisci.com</p>
         </div>
