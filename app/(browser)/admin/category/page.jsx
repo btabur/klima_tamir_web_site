@@ -1,44 +1,32 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import AddCategory from '../../../components/admin/category/AddCategory'
-
+import ListCategory from '../../../components/admin/category/ListCategory'
+import UpdateCategory from '../../../components/admin/Category/UpdateCategory'
 const CategoryPage = () => {
-    const [image, setImage] = useState(null)
-   
+    const [categories, setCategories] = useState([])
+    const [updateId, setUpdateId] = useState(null);
+    const [isUpdated, setIsUpdated] = useState(false);
 
-    const handleDelete = async () => {
-        if (!imageUrl) {
-            setError('No image URL provided')
-            return
-        }
-        try {
-            const response = await fetch('/api/deleteImage', {  
-                method: 'DELETE',
-                body: JSON.stringify({ imageUrl })
-            })
-            if (!response.ok) {
-                const errorText = await response.text()
-                throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`)
-            }
-            const result = await response.json()    
-            console.log('Delete result:', result)
-            setImageUrl(null)
-        } catch (error) {
-            console.error('Fetch error:', error)
-            setError(`Delete failed: ${error.message}`)
-        }
+    const fetchCategories = async () => {
+        const response = await fetch('/api/category')
+        const data = await response.json()
+        setCategories(data)
     }
+
+    useEffect(() => {
+        fetchCategories()
+    }, [isUpdated])
+
+  
 
     return (
         <section>
-
-            <AddCategory/>
-           
-
-
-           
-            <button onClick={handleDelete}>Delete</button>
+            {updateId ? 
+            <UpdateCategory onCategoryAdded={fetchCategories} updateId={updateId} setUpdateId={setUpdateId} setIsUpdated={setIsUpdated} /> 
+            :<AddCategory onCategoryAdded={fetchCategories} />}
+            <ListCategory setUpdateId={setUpdateId} categories={categories} setCategories={setCategories} />     
         </section>
     )
 }

@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import Image from 'next/image'; // Image bileşenini import edin
 import { IoIosCloseCircleOutline } from "react-icons/io";
 
-const AddCategory = () => {
+const AddCategory = ({ onCategoryAdded }) => {
     const [imageInput, setImageInput] = useState(null);
     const [imageUrl, setImageUrl] = useState(null)
     const [error, setError] = useState(null)
@@ -71,8 +71,7 @@ const AddCategory = () => {
             setCategoryName('')
             setImage(null)
             setImageInput(null)
-            // Optionally, you can add a success message state here
-            // setSuccessMessage('Category added successfully!')
+            onCategoryAdded()
         } catch (error) {
             console.error('Error:', error)
             setError(`Operation failed: ${error.message}`)

@@ -38,16 +38,35 @@ export const POST = async(request:Request)=> {
 }
 
 
- //get all categories
- export async function GET() {
-    try {
-      await connect();  // MongoDB'ye bağlan
-      const categories = await Category.find();  // Verileri çek
-      return NextResponse.json(categories);  // Verileri JSON olarak döndür
-    } catch (error) {
-      return new NextResponse(`Kategorileri alırken bir hata oldu: ${error}`, { status: 500 });
-    }
-  }
+
+   //get  category by id and return category or all categories
+export async function GET(request: Request) {
+	const { searchParams } = new URL(request.url);
+	const categoryId = searchParams.get("categoryId");
+
+	if (categoryId) {
+		// get category by id
+		try {
+			await connect();
+			const category = await Category.findById(new Types.ObjectId(categoryId));
+			if (!category) {
+				return new NextResponse(JSON.stringify({ message: "Kategori bulunamadı" }), { status: 404 });
+			}
+			return NextResponse.json(category);
+		} catch (error) {
+			return new NextResponse(`Kategoriyi alırken bir hata oldu: ${error}`, { status: 500 });
+		}
+	} else {
+		// get all categories
+		try {
+			await connect();
+			const categories = await Category.find();
+			return NextResponse.json(categories);
+		} catch (error) {
+			return new NextResponse(`Kategorileri alırken bir hata oldu: ${error}`, { status: 500 });
+		}
+	}
+}
 
 
  //update category   // isteğe bağlı olarak sadece ismin veya resmi günceleyebilir veya ikisini beraber güncelleyebilir
