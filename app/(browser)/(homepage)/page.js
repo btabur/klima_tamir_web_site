@@ -1,14 +1,13 @@
-"use client"
-import React from 'react'
+"use client";
+import React from "react";
+import Slider from "../../components/Slider";
 
-const HomePage = () => {
-
+const homePage = () => {
   return (
-    <div>
-      home page
-  
+    <div className="relative w-full mx-auto">
+      <Slider />
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default homePage;
