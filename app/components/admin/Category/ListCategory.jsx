@@ -32,7 +32,7 @@ const ListCategory = ({categories,setCategories,setUpdateId}) => {
         setUpdateId(id)
     }   
   return (
-    <section className='w-full px-20 mt-10'>
+    <section className='w-full xl:px-20 px-3 mt-10'>
      <table className="w-full">
         <thead>
           <tr className="bg-slate-500 text-white">

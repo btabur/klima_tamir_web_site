@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useState, useEffect } from "react";
-
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 const Slider = () => {
   const slides = [
     {
@@ -66,18 +66,21 @@ const Slider = () => {
 
       {/* Sol ok */}
       <button
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg hover:bg-gray-100"
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white w-8 h-8 flex items-center justify-center 
+        text-black text-xl p-2 rounded-full shadow-lg hover:bg-gray-100"
         onClick={prevSlide}
       >
-        &lt;
+        <FaArrowLeft/>
       </button>
 
       {/* Sağ ok */}
       <button
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg hover:bg-gray-100"
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 w-8 h-8 flex items-center justify-center 
+        text-black text-xl
+         bg-white p-2 rounded-full shadow-lg hover:bg-gray-100"
         onClick={nextSlide}
       >
-        &gt;
+        <FaArrowRight/>
       </button>
 
       {/* Slide göstergesi */}

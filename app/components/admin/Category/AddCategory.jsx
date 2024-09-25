@@ -79,10 +79,10 @@ const AddCategory = ({ onCategoryAdded }) => {
     }
   
     return (
-        <section className='text-black px-20 flex justify-center items-top gap-5'>
-            <article className='w-1/3'>
+        <section className='text-black ml-5 flex flex-col md:flex-row justify-center items-center gap-5 mt-10'>
+            <article className='w-1/2'>
             <h1 className='text-2xl font-bold'>Kategori Ekle</h1>
-            <form className='flex flex-col gap-3 w-1/2 mt-5' onSubmit={handleSubmit}>
+            <form className='flex flex-col gap-3 w-full mt-5' onSubmit={handleSubmit}>
                 <div>
                     <label className='cursor-pointer  border border-gray-300 rounded-md p-2' htmlFor="file"> Kategori için resim seç</label>
                     <input className='hidden' id='file' type="file" onChange={handleUpload} accept="image/*" />
@@ -105,7 +105,7 @@ const AddCategory = ({ onCategoryAdded }) => {
                         alt='Selected category image' 
                         width={100} 
                         height={100} 
-                        className='w-40 h-40'
+                        className='md:w-40 md:h-40 h-20 w-20'
                     />
             
             </div>}

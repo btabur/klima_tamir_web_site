@@ -103,34 +103,11 @@ const  UpdateCategory = ({updateId, setUpdateId, setIsUpdated, onCategoryAdded})
         }
     }
 
-    const handleDeleteImage = async () => {
-        try {
-            if (imageUrl) {
-                const response = await fetch(`/api/deleteImage`, {
-                    method: 'DELETE',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ imageUrl: imageUrl }),
-                });
-                if (!response.ok) {
-                    const errorText = await response.text();
-                    throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
-                }
-            }
-            setImage(null)
-            setImageUrl(null)
-            setIsImageDeleted(true)
-            setImageInput(null)
-        } catch (error) {
-            console.error('Error deleting image:', error)
-            setError(`Operation failed: ${error.message}`)
-        }
-    }
+    
     
     return (
-        <section className='text-black px-20 flex justify-center items-top gap-5'>
-            <article className='w-1/3'>
+        <section className='text-black ml-5 flex flex-col md:flex-row justify-center items-top gap-5 mt-10'>
+            <article className='md:w-1/2 w-full'>
                 <h1 className='text-2xl font-bold'>Kategori Güncelle</h1>
                 <form className='flex flex-col gap-3 w-1/2 mt-5' onSubmit={handleSubmit}>
                     <div>
@@ -147,9 +124,7 @@ const  UpdateCategory = ({updateId, setUpdateId, setIsUpdated, onCategoryAdded})
 
             {image && !isImageDeleted && (
                 <div className='h-40 relative flex flex-col items-center justify-center'>
-                    <button onClick={handleDeleteImage} className='absolute top-5 text-2xl border-2 border-gray-300 right-0 bg-white rounded-full'>
-                        <IoIosCloseCircleOutline />
-                    </button>
+                  
                     <p>Kategori resmi</p>
                     <Image 
                         src={image} 

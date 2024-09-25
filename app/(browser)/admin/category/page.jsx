@@ -22,7 +22,7 @@ const CategoryPage = () => {
   
 
     return (
-        <section>
+        <section className='w-5/6'>
             {updateId ? 
             <UpdateCategory onCategoryAdded={fetchCategories} updateId={updateId} setUpdateId={setUpdateId} setIsUpdated={setIsUpdated} /> 
             :<AddCategory onCategoryAdded={fetchCategories} />}

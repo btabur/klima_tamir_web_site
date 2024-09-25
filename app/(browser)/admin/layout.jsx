@@ -1,12 +1,15 @@
 import React from 'react'
 import TopHeader from '../../components/TopHeader'
-
+import Menu from '../../components/admin/Menu'
 export default function AdminLayout({ children }) {
     return (
-        <main className="admin-layout">
+        <main className="admin-layout ">
             <TopHeader />
-            <h1 className='text-black text-2xl font-bold'>Admin Panel</h1>
-            {children}
+            <section  className='flex'>     
+                    <Menu/>
+                    {children}
+            </section>
+               
         </main>
     );
 }
