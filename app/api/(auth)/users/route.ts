@@ -10,14 +10,32 @@ const ObjectId = require("mongoose").Types.ObjectId
 //   /api/users
 
   //get all user
-export async function GET() {
-    try {
-      await connect();  // MongoDB'ye bağlan
-      const users = await User.find();  // Verileri çek
-      return NextResponse.json(users);  // Verileri JSON olarak döndür
-    } catch (error) {
-      return new NextResponse(`Error in fetching users: ${error}`, { status: 500 });
-    }
+export async function GET(request:Request) {
+  const { searchParams } = new URL(request.url);
+	const userId = searchParams.get("userId");
+
+	if (userId) {
+		// get product by id
+		try {
+			await connect();
+			const user = await User.findById(new Types.ObjectId(userId));
+			if (!user) {
+				return new NextResponse(JSON.stringify({ message: "kullanıcı bulunamadı" }), { status: 404 });
+			}
+			return NextResponse.json(user);
+		} catch (error) {
+			return new NextResponse(`kullanıcı alırken bir hata oldu: ${error}`, { status: 500 });
+		}
+	} else {
+		// get all users
+		try {
+			await connect();
+			const users = await User.find();
+			return NextResponse.json(users);
+		} catch (error) {
+			return new NextResponse(`kullanıcıları alırken bir hata oldu: ${error}`, { status: 500 });
+		}
+	}
   }
 
   //update user 

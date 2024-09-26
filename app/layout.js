@@ -21,13 +21,13 @@ const geistMono = localFont({
 export default function RootLayout({ children }) {
   const pathname = usePathname();
   const isAdminPage = pathname.startsWith('/admin');
-
+  const isAuthPage = pathname.startsWith('/login') || pathname.startsWith('/register');
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white `}
       >
-        {!isAdminPage && (
+        {!isAdminPage && !isAuthPage && (
           <>  
             <TopMenu/>
             <TopHeader/>

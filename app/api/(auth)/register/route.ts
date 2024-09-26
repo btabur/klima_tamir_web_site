@@ -9,7 +9,7 @@ import bcrypt from 'bcrypt';
  export const POST=async(request:Request)=> {
     try {
         const body = await request.json();
-        const{email,password,username,role}=body;
+        const{email,password,username,role="user"}=body;
 
         await connect();
 
