@@ -5,10 +5,10 @@ import { FaPhoneVolume } from "react-icons/fa6";
 
 const Header = () => {
   return (
-    <header className="flex justify-between flex-col lg:flex-row gap-4   items-center px-20 mt-5">
+    <header className="flex justify-between flex-col lg:flex-row gap-4 items-center px-20 mt-5">
       {/* left logo */}
       <article className=" flex items-center justify-center  lg:gap-2 gap-8">
-        <img className="object-cover w-32 " src="logo.png" alt="" />
+        <img className="object-cover w-32" src="logo.png" alt="" />
         <img className="object-cover w-44" src="logo2.png" alt="" />
       </article>
       {/* right logo */}

@@ -70,7 +70,7 @@ const Slider = () => {
         text-black text-xl p-2 rounded-full shadow-lg hover:bg-gray-100"
         onClick={prevSlide}
       >
-        <FaArrowLeft/>
+        <FaArrowLeft />
       </button>
 
       {/* Sağ ok */}
@@ -80,7 +80,7 @@ const Slider = () => {
          bg-white p-2 rounded-full shadow-lg hover:bg-gray-100"
         onClick={nextSlide}
       >
-        <FaArrowRight/>
+        <FaArrowRight />
       </button>
 
       {/* Slide göstergesi */}
