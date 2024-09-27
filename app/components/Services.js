@@ -13,55 +13,55 @@ const Services = () => {
           <img className="w-52 h-56" src="logo.png" alt="" />
           <h3 className="font-bold">Verimlilik</h3>
           <p className="   ">
-            Welcome to our company! At BNG Klima ve Havalandırma Sistemleri, we
-            specialize in providing top-notch HVAC solutions to both residential
-            and commercial clients. Our experienced team ensures your
-            environment remains comfortable and energy-efficient throughout the
-            year.
+            Welcome to our company! At Ünsal Teknik Isıtma-Soğutma ve
+            Havalandırma Sistemleri, we specialize in providing top-notch HVAC
+            solutions to both residential and commercial clients. Our
+            experienced team ensures your environment remains comfortable and
+            energy-efficient throughout the year.
           </p>
         </div>
         <div className="border grid justify-items-center my-12 ">
           <img className="w-52 h-56" src="logo.png" alt="" />
           <h3 className="font-bold">Verimlilik</h3>
           <p className="text-gray-700 text-lg   ">
-            Welcome to our company! At BNG Klima ve Havalandırma Sistemleri, we
-            specialize in providing top-notch HVAC solutions to both residential
-            and commercial clients. Our experienced team ensures your
-            environment remains comfortable and energy-efficient throughout the
-            year.
+            Welcome to our company! At Ünsal Teknik Isıtma-Soğutma ve
+            Havalandırma Sistemler, we specialize in providing top-notch HVAC
+            solutions to both residential and commercial clients. Our
+            experienced team ensures your environment remains comfortable and
+            energy-efficient throughout the year.
           </p>
         </div>
         <div className="border grid justify-items-center items-start my-12 ">
           <img className="w-52 h-56" src="logo.png" alt="" />
           <h3 className="font-bold">Verimlilik</h3>
           <p className="text-gray-700 text-lg   ">
-            Welcome to our company! At BNG Klima ve Havalandırma Sistemleri, we
-            specialize in providing top-notch HVAC solutions to both residential
-            and commercial clients. Our experienced team ensures your
-            environment remains comfortable and energy-efficient throughout the
-            year.
+            Welcome to our company! At Ünsal Teknik Isıtma-Soğutma ve
+            Havalandırma Sistemler, we specialize in providing top-notch HVAC
+            solutions to both residential and commercial clients. Our
+            experienced team ensures your environment remains comfortable and
+            energy-efficient throughout the year.
           </p>
         </div>
         <div className="border grid justify-items-center items-start my-12 ">
           <img className="w-52 h-56" src="logo.png" alt="" />
           <h3 className="font-bold">Verimlilik</h3>
           <p className="text-gray-700 text-lg   ">
-            Welcome to our company! At BNG Klima ve Havalandırma Sistemleri, we
-            specialize in providing top-notch HVAC solutions to both residential
-            and commercial clients. Our experienced team ensures your
-            environment remains comfortable and energy-efficient throughout the
-            year.
+            Welcome to our company! At Ünsal Teknik Isıtma-Soğutma ve
+            Havalandırma Sistemler, we specialize in providing top-notch HVAC
+            solutions to both residential and commercial clients. Our
+            experienced team ensures your environment remains comfortable and
+            energy-efficient throughout the year.
           </p>
         </div>
         <div className="border grid justify-items-center items-start my-12 ">
           <img className="w-52 h-56" src="logo.png" alt="" />
           <h3 className="font-bold">Verimlilik</h3>
           <p className="text-gray-700 text-lg   ">
-            Welcome to our company! At BNG Klima ve Havalandırma Sistemleri, we
-            specialize in providing top-notch HVAC solutions to both residential
-            and commercial clients. Our experienced team ensures your
-            environment remains comfortable and energy-efficient throughout the
-            year.
+            Welcome to our company! At Ünsal Teknik Isıtma-Soğutma ve
+            Havalandırma Sistemler, we specialize in providing top-notch HVAC
+            solutions to both residential and commercial clients. Our
+            experienced team ensures your environment remains comfortable and
+            energy-efficient throughout the year.
           </p>
         </div>
       </div>
