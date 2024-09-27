@@ -5,19 +5,20 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 const Slider = () => {
   const slides = [
     {
-      image: "/images/slide1.jpg",
+      image: "/slider/slide1.jpg",
       text: "Klima Montaj ve Servis",
       subText:
         " Ünsal Teknik ile yazın keyfini çıkarın! Klima Montaj ve Servis hizmetimizle yazın sıcakları artık sorun olmaktan çıkıyor! Uzman ekibimiz, en kaliteli klima sistemlerini profesyonel bir şekilde montajını yapar ve ihtiyaçlarınıza uygun çözümler sunar.",
     },
     {
-      image: "/images/slide2.jpg",
-      text: "Klima Bakımı ve Onarım",
+      image: "/slider/slide2.jpg",
+      text: "Her Marka Klima Arıza Bakım Onarım",
       subText:
         "Klima bakım ve onarım hizmetlerimizle serin kalın, rahat nefes alın! Ünsal Teknik olarak, her marka ve model klimada uzman ekiplerimizle hızlı ve güvenilir çözümler sunuyoruz.",
     },
+
     {
-      image: "/images/slider3.jpg",
+      image: "/slider/slider3.jpg",
       text: "Havalandırma Sistemleri",
       subText:
         "Ünsal Teknik olarak, yaşam alanlarınızda sağlıklı ve konforlu bir atmosfer yapmayı hedefliyoruz. Modern havalandırma sistemlerimiz, iç mekanlarda hava sirkülasyonunu optimize ederken, enerji verimliliği ile bütçenize dost çözümler sunar.",
@@ -30,7 +31,7 @@ const Slider = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
-    }, 3000); // 3 saniyede bir kaydır
+    }, 5000); // 5 saniyede bir kaydır
 
     return () => clearInterval(timer);
   }, [slides.length]);
@@ -54,7 +55,7 @@ const Slider = () => {
           className=" w-full h-96 object-cover  transition duration-500"
         />
         {/* Metin Ekleme */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-black bg-opacity-50">
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-center bg-black bg-opacity-50">
           <h2 className="text-white text-2xl md:text-4xl font-fira font-bold">
             {slides[currentIndex].text}
           </h2>
