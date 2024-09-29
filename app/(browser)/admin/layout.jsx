@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react'
-import TopHeader from '../../components/TopHeader'
+import Header from '../../components/admin/Header'
 import Menu from '../../components/admin/Menu'
 import { useRouter } from 'next/navigation';
 
@@ -42,8 +42,8 @@ export default function AdminLayout({ children }) {
 
     return (
         <main className="admin-layout ">
-            <TopHeader />
-            <section className='flex'>     
+            <Header />  
+            <section className='flex bg-slate-100'>     
                 <Menu />
                 {children}
             </section>

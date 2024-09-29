@@ -1,10 +1,15 @@
 'use client'
 import { useRouter, usePathname } from 'next/navigation'
-import React from 'react'
+import React, { useState } from 'react'
+import { adminMenuItems } from '../../utilis/menuItems'
+import { MdBorderAll, MdCategory, MdDashboard, MdProductionQuantityLimits, MdSettings } from "react-icons/md";
+import { IoIosArrowForward } from "react-icons/io";
+import { IoChevronBack } from "react-icons/io5";
 
 const Menu = () => {
     const router = useRouter()
     const pathname = usePathname()
+    const [isOpen, setIsOpen] = useState(false)
 
     const handleClick = (path) => {
         router.push(path)
@@ -13,26 +18,35 @@ const Menu = () => {
     const isActive = (path) => pathname === path
 
     return (
-        <section className='w-1/6 h-[calc(100vh-68px)] bg-slate-500'>
+        <section className='h-[calc(100vh-72px)] shadow-lg bg-white relative'>
             <ul className='text-white text-xl font-bold'>
-                {[
-                    { path: '/admin/dashboard', label: 'Genel Görünüm' },
-                    { path: '/admin/category', label: 'Kategori' },
-                    { path: '/admin/products', label: 'Ürün' },
-                    { path: '/admin/order', label: 'Sipariş' },
-                    { path: '/admin/settings', label: 'Ayarlar' },
-                ].map(({ path, label }) => (
+                {adminMenuItems.map(({ path, label }) => (
                     <li
                         key={path}
                         onClick={() => handleClick(path)}
-                        className={`p-3 hover:bg-slate-400 cursor-pointer ${
-                            isActive(path) ? 'bg-blue-500' : ''
+                        className={`m-3 p-2 flex items-center  text-black gap-2 hover:bg-slate-400 hover:text-white hover:rounded-lg cursor-pointer overflow-hidden ${
+                            isActive(path) ? 'bg-blue-500 rounded-lg shadow-lg text-white' : ''
                         }`}
                     >
-                        {label}
+                        <div className="flex items-center">
+                            {label === 'Genel Görünüm' ? <MdDashboard /> 
+                            : label === 'Kategori' ? <MdCategory /> 
+                            : label === 'Ürün' ? <MdProductionQuantityLimits /> 
+                            : label === 'Sipariş' ? <MdBorderAll /> 
+                            : label === 'Ayarlar' ? <MdSettings /> : ''}
+                           {isOpen ? <p>{label}</p> : ''}
+                        </div>
                     </li>
                 ))}
             </ul>
+                <button onClick={() => setIsOpen(!isOpen)}
+                className=' absolute bottom-20 left-2 shadow-lg text-2xl text-black border-2 border-black rounded-lg p-2
+                hover:bg-slate-400 hover:text-white hover:border-white cursor-pointer overflow-hidden'>
+               
+                {isOpen ? <IoChevronBack /> : <IoIosArrowForward />}
+                
+                </button>
+           
         </section>
     )
 }

@@ -9,3 +9,11 @@ export const menuItems = [
     { href: "/blog", label: "Blog" },
     { href: "/iletisim", label: "İletişim" },
 ];
+
+export const adminMenuItems = [
+    { path: '/admin/dashboard', label: 'Genel Görünüm' },
+    { path: '/admin/category', label: 'Kategori' },
+    { path: '/admin/products', label: 'Ürün' },
+    { path: '/admin/order', label: 'Sipariş' },
+    { path: '/admin/settings', label: 'Ayarlar' },
+];
