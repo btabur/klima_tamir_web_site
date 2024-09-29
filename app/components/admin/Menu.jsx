@@ -40,7 +40,7 @@ const Menu = () => {
                 ))}
             </ul>
                 <button onClick={() => setIsOpen(!isOpen)}
-                className=' absolute bottom-20 left-2 shadow-lg text-2xl text-black border-2 border-black rounded-lg p-2
+                className='hidden md:block absolute bottom-20 left-2 shadow-lg text-2xl text-black border-2 border-black rounded-lg p-2
                 hover:bg-slate-400 hover:text-white hover:border-white cursor-pointer overflow-hidden'>
                
                 {isOpen ? <IoChevronBack /> : <IoIosArrowForward />}

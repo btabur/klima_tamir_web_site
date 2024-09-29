@@ -38,8 +38,8 @@ const ListCategory = ({categories,setCategories,setUpdateId}) => {
           <tr className="bg-slate-500 text-white">
             <th>Kategori İsmi</th>
             <th>Resmi</th>
-            <th >Güncelle</th>
-            <th >Sil</th>
+            <th ></th>
+            <th ></th>
           </tr>
         </thead>
         <tbody>
@@ -51,16 +51,16 @@ const ListCategory = ({categories,setCategories,setUpdateId}) => {
               >
                 <td className="py-1 text-xl font-semibold">{category.name}</td>
                 <td className="py-1  flex justify-center items-center">
-                    <Image src={category.image} alt={category.name} width={100} height={100}/>
+                    <Image className='rounded-md shadow-lg w-20 h-20' src={category.image} alt={category.name} width={100} height={100}/>
                 </td>
     
-                <td className="py-1  relative ">
+                <td className="py-1 px-2 relative ">
                 <RiEdit2Fill onClick={()=>handleEdit(category._id)}
                  className='absolute top-[50%] right-[50%] cursor-pointer
                  hover:text-blue-500 hover:scale-110 transition-all
                  -translate-y-[50%] text-xl'/>
                 </td>
-                <td className="py-1 relative">
+                <td className="py-1 px-2 relative">
                 <MdDeleteSweep onClick={()=>handleDelete(category._id)}
                  className='absolute top-[50%] right-[50%]  -translate-y-[50%] text-xl
                 cursor-pointer hover:text-red-500 hover:scale-110 transition-all'/>

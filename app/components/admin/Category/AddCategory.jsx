@@ -79,8 +79,8 @@ const AddCategory = ({ onCategoryAdded }) => {
     }
   
     return (
-        <section className='text-black ml-5 flex flex-col md:flex-row justify-center items-center gap-5 mt-10'>
-            <article className='w-1/2'>
+        <section className='text-black ml-20  flex flex-col md:flex-row  items-center gap-5 mt-10'>
+            <article className='w-72'>
             <h1 className='text-2xl font-bold'>Kategori Ekle</h1>
             <form className='flex flex-col gap-3 w-full mt-5' onSubmit={handleSubmit}>
                 <div>
@@ -91,7 +91,7 @@ const AddCategory = ({ onCategoryAdded }) => {
                     <input onChange={(e) => setCategoryName(e.target.value)} className='p-2 border border-gray-300 rounded-md' type="text" placeholder='Kategori adı' />
                 </div>
                  
-                <button className='bg-red-600 text-white p-2 rounded-md w-32' type='submit'>Kaydet</button>
+                <button className='bg-blue-600 text-white p-2 rounded-md w-32' type='submit'>Kaydet</button>
             </form>
             </article>
 
@@ -99,13 +99,13 @@ const AddCategory = ({ onCategoryAdded }) => {
                 <button onClick={() => setImage(null)} className='absolute top-5 text-2xl border-2 border-gray-300 right-0 bg-white rounded-full '>
                 <IoIosCloseCircleOutline />
                 </button>
-                    <p>Kategori resmi</p>
+                    <p className='text-xl font-bold '>Kategori resmi</p>
                     <Image 
                         src={image} 
                         alt='Selected category image' 
                         width={100} 
                         height={100} 
-                        className='md:w-40 md:h-40 h-20 w-20'
+                        className='md:w-40 md:h-40 h-20 w-20 rounded-lg shadow-lg'
                     />
             
             </div>}

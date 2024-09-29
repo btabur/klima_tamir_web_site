@@ -17,7 +17,7 @@ const Header = () => {
             </div>
         </div>
         
-        <div>
+        <div className='hidden md:block'>
             <p>{isActive('/admin/dashboard') ? 'Genel Görünüm' : ''}</p>
             <p>{isActive('/admin/category') ? 'Kategori' : ''}</p>
             <p>{isActive('/admin/products') ? 'Ürün' : ''}</p>
