@@ -46,7 +46,7 @@ const Slider = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
   };
   return (
-    <div className="relative w-full mx-auto md:mt-0 mt-5">
+    <div className="relative w-full mx-auto md:mt-0 mt-5 ">
       {/* Slider görüntüsü */}
       <div className="w-full overflow-hidden">
         <img

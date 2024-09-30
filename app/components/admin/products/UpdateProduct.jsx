@@ -148,8 +148,8 @@ const getCategoryName = useCallback((categoryId) => {
                     </div>
                     <div>
                        <select 
-                       selected={getCategoryName(productCategory)}
-                        className='p-2 border border-gray-300 rounded-md px-10'
+                       value={productCategory}
+                        className='p-2 border border-gray-300 rounded-md px-10 text-black '
                         onChange={(e) => setProductCategory(e.target.value)}
                        >
                         {categories.map((category) => (

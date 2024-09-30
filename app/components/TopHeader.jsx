@@ -9,7 +9,7 @@ import { IoMdMail } from "react-icons/io";
 
 const TopHeader = () => {
   return (
-    <header className="flex w-full  justify-between items-center py-3 px-20  border-b">
+    <header className="flex w-full  justify-between items-center py-3 px-20  border-b ">
       <article className="flex items-center gap-5">
         <div
           className="flex items-center py-2 px-5 border rounded-full gap-3 

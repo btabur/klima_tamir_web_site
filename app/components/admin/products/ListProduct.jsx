@@ -55,8 +55,8 @@ const ListProduct = ({products, setProducts, setUpdateId, categories}) => {
   return (
     <section className='w-full lg:px-20 px-3 mt-10'>
       <div className='flex  gap-3 items-center mb-5 '>
-        <p className='text-xl font-semibold'>Filitrele :</p>
-        <select className='border  py-2 px-5 rounded-md'
+        <p className='text-xl text-black font-semibold'>Filitrele :</p>
+        <select className='border  py-2 px-5 text-black  rounded-md'
           onChange={(e) => setSelectedCategory(e.target.value)} 
           value={selectedCategory}
         >
