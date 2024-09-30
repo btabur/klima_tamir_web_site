@@ -2,26 +2,18 @@ import React, { useState, useEffect } from 'react'
 import { IoIosCloseCircleOutline } from 'react-icons/io';
 import Image from 'next/image';
 
-const AddProduct = ({onProductAdded}) => {
+const AddProduct = ({onProductAdded, categories}) => {
     const [imageInput, setImageInput] = useState(null);
     const [imageUrl, setImageUrl] = useState(null)
     const [error, setError] = useState(null)
     const [productName, setProductName] = useState('')
     const [image, setImage] = useState(null);
-    const [productPrice, setProductPrice] = useState('')
+    const [productPrice, setProductPrice] = useState(0)
     const [productDescription, setProductDescription] = useState('')
     const [productCategory, setProductCategory] = useState('')
-    const [categories, setCategories] = useState([])
 
-    useEffect(() => {
-        fetchCategories()
-    }, [])
+   
 
-    const fetchCategories = async () => {
-        const response = await fetch('/api/category')
-        const data = await response.json()
-        setCategories(data)
-    }
 
     const handleUpload = (e) => {
         const file = e.target.files[0]
@@ -45,7 +37,7 @@ const AddProduct = ({onProductAdded}) => {
             setError('Please enter a product name')
             return
         }
-        if (!productPrice.trim()) {
+        if (productPrice==0) {
             setError('Please enter a product price')
             return
         }
@@ -108,7 +100,7 @@ const AddProduct = ({onProductAdded}) => {
   return (
     <section className='text-black ml-20 flex flex-col md:flex-row  items-center gap-5 mt-10'>
             <article className='w-96'>
-            <h1 className='text-2xl font-bold'>Kategori Ekle</h1>
+            <h1 className='text-2xl font-bold'>Ürün Ekle</h1>
             <form className='flex flex-col gap-3 w-full mt-5' onSubmit={handleSubmit}>
                 <div >
                     <label className='cursor-pointer  border border-gray-300 rounded-md p-2' htmlFor="file"> Ürün için resim seç</label>

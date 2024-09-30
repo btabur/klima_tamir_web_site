@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image';
-import { IoIosCloseCircleOutline } from "react-icons/io";
+
 
 const  UpdateCategory = ({updateId, setUpdateId, setIsUpdated, onCategoryAdded}) => {
     const [imageInput, setImageInput] = useState(null);
@@ -12,7 +12,7 @@ const  UpdateCategory = ({updateId, setUpdateId, setIsUpdated, onCategoryAdded})
     const [isImageDeleted, setIsImageDeleted] = useState(false);
    
     useEffect(() => {
-        const fetchCategory = async () => {
+    const fetchCategory = async () => {
             const response = await fetch(`/api/category?categoryId=${updateId}`)
             const data = await response.json()
             setCategoryName(data.name)

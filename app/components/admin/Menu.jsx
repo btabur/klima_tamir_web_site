@@ -24,23 +24,25 @@ const Menu = () => {
                     <li
                         key={path}
                         onClick={() => handleClick(path)}
-                        className={`m-3 p-2 flex items-center  text-black gap-2 hover:bg-slate-400 hover:text-white hover:rounded-lg cursor-pointer overflow-hidden ${
-                            isActive(path) ? 'bg-blue-500 rounded-lg shadow-lg text-white' : ''
-                        }`}
+                        className={`m-3 p-2 flex items-center text-black gap-2 hover:bg-slate-400 
+                            hover:text-white hover:rounded-lg cursor-pointer overflow-hidden 
+                            ${
+                                isActive(path) ? 'bg-blue-500 rounded-lg text-white' : ''
+                            }`}
                     >
-                        <div className="flex items-center">
+                        <div className="flex items-center gap-2">
                             {label === 'Genel Görünüm' ? <MdDashboard /> 
                             : label === 'Kategori' ? <MdCategory /> 
                             : label === 'Ürün' ? <MdProductionQuantityLimits /> 
                             : label === 'Sipariş' ? <MdBorderAll /> 
                             : label === 'Ayarlar' ? <MdSettings /> : ''}
-                           {isOpen ? <p>{label}</p> : ''}
+                           {isOpen ? <p className='text-sm'>{label}</p> : ''}
                         </div>
                     </li>
                 ))}
             </ul>
                 <button onClick={() => setIsOpen(!isOpen)}
-                className='hidden md:block absolute bottom-20 left-2 shadow-lg text-2xl text-black border-2 border-black rounded-lg p-2
+                className='hidden md:block absolute bottom-20 right-2 shadow-lg text-2xl text-black border-2 border-black rounded-lg p-2
                 hover:bg-slate-400 hover:text-white hover:border-white cursor-pointer overflow-hidden'>
                
                 {isOpen ? <IoChevronBack /> : <IoIosArrowForward />}

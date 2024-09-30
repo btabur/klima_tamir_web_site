@@ -7,9 +7,9 @@ const ProductsPage = () => {
   const [products, setProducts] = useState([])
   const [updateId, setUpdateId] = useState(null);
   const [isUpdated, setIsUpdated] = useState(false);
-
+  const [categories, setCategories] = useState([])
   const fetchProducts = async () => {
-      const response = await fetch('/api/products')
+      const response = await fetch('/api/product')
       const data = await response.json()
       setProducts(data)
   }
@@ -17,12 +17,19 @@ const ProductsPage = () => {
   useEffect(() => {
       fetchProducts()
   }, [isUpdated])
+
+   // kategori listesi
+   useEffect(()=>{
+    fetch('/api/category')
+    .then(res=>res.json())
+    .then(data=>setCategories(data))
+  },[])
   return (
-    <section className='w-5/6'>
+    <section className='w-full'>
       {updateId ? 
-      <UpdateProduct onProductAdded={fetchProducts} updateId={updateId} setUpdateId={setUpdateId} setIsUpdated={setIsUpdated} /> 
-      :<AddProduct onProductAdded={fetchProducts} />}
-      <ListProduct setUpdateId={setUpdateId} products={products} setProducts={setProducts} />     
+      <UpdateProduct categories={categories} onProductAdded={fetchProducts} updateId={updateId} setUpdateId={setUpdateId} setIsUpdated={setIsUpdated} /> 
+      :<AddProduct categories={categories} onProductAdded={fetchProducts} />}
+      <ListProduct categories={categories} setUpdateId={setUpdateId} products={products} setProducts={setProducts} />     
     </section>
   )
 }
