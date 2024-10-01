@@ -6,6 +6,7 @@ import TopHeader from "./components/TopHeader";
 import TopMenu from "./components/TopMenu";
 import Menu from "./components/Menu";
 import { usePathname } from 'next/navigation';
+import { BasketProvider } from './context/BasketContext';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -20,23 +21,24 @@ const geistMono = localFont({
 
 export default function RootLayout({ children }) {
   const pathname = usePathname();
-  const isAdminPage = pathname.startsWith('/admin');
-  const isAuthPage = pathname.startsWith('/login') || pathname.startsWith('/register');
+  const isSpecialPage = pathname.startsWith('/admin') || pathname.startsWith('/login') || pathname.startsWith('/register');
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white `}
-      >
-        {!isAdminPage && !isAuthPage && (
-          <>  
-            <TopMenu/>
-            <TopHeader/>
-            <Header/>
-            <Menu/>
-          </>
-        )}
-        {children}
-      </body>
-    </html>
+    <BasketProvider>
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white `}
+        >
+          {!isSpecialPage && (
+            <>  
+              <TopMenu/>
+              <TopHeader/>
+              <Header/>
+              <Menu/>
+            </>
+          )}
+          {children}
+        </body>
+      </html>
+    </BasketProvider>
   );
 }

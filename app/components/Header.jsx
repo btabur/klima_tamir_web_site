@@ -1,9 +1,16 @@
 import Image from "next/image";
-import Link from "next/link";
+
 import React from "react";
 import { FaPhoneVolume } from "react-icons/fa6";
+import { useBasketContext } from "../context/BasketContext";
 
 const Header = () => {
+  const basketContext = useBasketContext();
+  // Eğer basketContext undefined ise, boş bir nesne kullan
+  const { state = {} } = basketContext || {};
+  
+  console.log(state);
+  
   return (
     <header className="flex justify-between flex-col lg:flex-row gap-4 items-center px-20 mt-5 ">
       {/* left logo */}

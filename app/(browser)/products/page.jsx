@@ -3,11 +3,17 @@ import axios from 'axios';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react'
 import { MdOutlineShoppingCart } from "react-icons/md";
+import { useBasketContext } from '../../context/BasketContext';
+
 const ProductsPage = () => {
   const [products, setProducts] = useState([])
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [categories, setCategories] = useState([])
   const [filteredProducts, setFilteredProducts] = useState([])
+  
+  const basketContext = useBasketContext();
+  const { state, setState } = basketContext || {};
+
   useEffect(() => {
     axios.get('/api/product')
     .then(res => {
@@ -28,9 +34,22 @@ const ProductsPage = () => {
     }
   }, [selectedCategory, products])
   const handleAddToCart = (product) => {
-    console.log(product)
+    if (setState) {
+      setState({
+        ...state,
+        basket: [...(state?.basket || []), product],
+        total: (state?.total || 0) + product.price
+      });
+    } else {
+      console.error('setState is not available');
+    }
   }
   // todo : sepete ekleme işlemi yapılacak
+  // todo : sepete eklendiğinde toast notification eklenecek
+  // todo : sepete eklendiğinde sayfa yenilenmeyecek
+  // todo : sepete eklendiğinde sepet sayfasına yönlendirilecek
+  // todo : sepete eklendiğinde sepetteki ürün sayısı artırılacak
+
   return (
     <section className="text-black px-20  pt-10 bg-gray-100 min-h-screen">
         <div className='flex  gap-3 items-center mb-5 '>
