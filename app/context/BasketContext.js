@@ -8,6 +8,7 @@ export const BasketProvider = ({ children }) => {
   const [state, setState] = useState({
     basket: [],
     total: 0,
+    isShowBasketModal: false,
   });
 
   return (

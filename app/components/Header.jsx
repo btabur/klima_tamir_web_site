@@ -1,20 +1,17 @@
 import Image from "next/image";
-
+import Link from "next/link";
 import React from "react";
 import { FaPhoneVolume } from "react-icons/fa6";
-import { useBasketContext } from "../context/BasketContext";
 
 const Header = () => {
-  const basketContext = useBasketContext();
-  // Eğer basketContext undefined ise, boş bir nesne kullan
-  const { state = {} } = basketContext || {};
+ 
   
-  console.log(state);
+
   
   return (
     <header className="flex justify-between flex-col lg:flex-row gap-4 items-center px-20 mt-5 ">
       {/* left logo */}
-      <Link href="/..">
+      <Link href="/">
         <article className=" flex items-center justify-center  lg:gap-2 gap-8">
           <img className="object-cover w-32" src="logo.png" alt="" />
           <img className="object-cover w-44" src="logo2.png" alt="" />

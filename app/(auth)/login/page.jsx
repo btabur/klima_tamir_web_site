@@ -26,16 +26,16 @@ const Login = () => {
         // Giriş başarılı, kullanıcıyı yönlendirin
         console.log(data.user.role);
        if(data.user.role === 'admin') {
-        localStorage.setItem('isAuth', true);
-        localStorage.setItem('userId', data.user._id);
+       
+        localStorage.setItem('Klima_Tamir_userId', data.user._id);
         router.push('/admin/dashboard');
        }else if(data.user.role === 'user'){
-        localStorage.setItem('isAuth', true);
-        localStorage.setItem('userId', data.user._id);
+        localStorage.setItem('Klima_Tamir_userId', data.user._id);
+      
         router.push('/');
        }
        else{
-        localStorage.setItem('isAuth', false);
+        localStorage.setItem('Klima_Tamir_isAuth', false);
        setError('Yetkisiz giriş denemesi') 
        }
        

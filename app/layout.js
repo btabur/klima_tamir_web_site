@@ -19,26 +19,33 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export default function RootLayout({ children }) {
+function RootLayoutContent({ children }) {
   const pathname = usePathname();
   const isSpecialPage = pathname.startsWith('/admin') || pathname.startsWith('/login') || pathname.startsWith('/register');
+
+  return (
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white `}
+      >
+        {!isSpecialPage && (
+          <>  
+            <TopMenu/>
+            <TopHeader/>
+            <Header/>
+            <Menu/>
+          </>
+        )}
+        {children}
+      </body>
+    </html>
+  );
+}
+
+export default function RootLayout({ children }) {
   return (
     <BasketProvider>
-      <html lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white `}
-        >
-          {!isSpecialPage && (
-            <>  
-              <TopMenu/>
-              <TopHeader/>
-              <Header/>
-              <Menu/>
-            </>
-          )}
-          {children}
-        </body>
-      </html>
+      <RootLayoutContent>{children}</RootLayoutContent>
     </BasketProvider>
   );
 }

@@ -9,7 +9,7 @@ export default function AdminLayout({ children }) {
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-        const userId = localStorage.getItem('userId');
+        const userId = localStorage.getItem('Klima_Tamir_userId');
         if (userId) {
             fetchUser(userId);
         } else {
@@ -31,7 +31,7 @@ export default function AdminLayout({ children }) {
     useEffect(() => {
         if (user) {
             if (user.role !== 'admin') {
-                router.push('/login');
+                router.push('/');
             }
         }
     }, [user, router]);

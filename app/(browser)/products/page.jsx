@@ -35,10 +35,28 @@ const ProductsPage = () => {
   }, [selectedCategory, products])
   const handleAddToCart = (product) => {
     if (setState) {
-      setState({
-        ...state,
-        basket: [...(state?.basket || []), product],
-        total: (state?.total || 0) + product.price
+      setState(prevState => {
+        const existingProduct = prevState.basket?.find(item => item._id === product._id);
+        
+        if (existingProduct) {
+          // Ürün zaten sepette var, miktarını 1 artır
+          return {
+            ...prevState,
+            basket: prevState.basket.map(item => 
+              item._id === product._id 
+                ? { ...item, piece: item.piece + 1 }
+                : item
+            ),
+            total: prevState.total + product.price
+          };
+        } else {
+          // Ürün sepette yok, yeni ürün olarak ekle
+          return {
+            ...prevState,
+            basket: [...(prevState.basket || []), { ...product, piece: 1 }],
+            total: prevState.total + product.price
+          };
+        }
       });
     } else {
       console.error('setState is not available');
