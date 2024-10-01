@@ -5,7 +5,7 @@ import { FaPhoneVolume } from "react-icons/fa6";
 
 const Header = () => {
   return (
-    <header className=" flex justify-between flex-col lg:flex-row gap-4 items-center px-20 mt-5">
+    <header className="flex justify-between flex-col lg:flex-row gap-4 items-center px-20 mt-5 ">
       {/* left logo */}
       <Link href="/..">
         <article className=" flex items-center justify-center  lg:gap-2 gap-8">
