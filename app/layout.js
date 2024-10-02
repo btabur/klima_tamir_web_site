@@ -7,6 +7,8 @@ import TopMenu from "./components/TopMenu";
 import Menu from "./components/Menu";
 import { usePathname } from 'next/navigation';
 import { BasketProvider } from './context/BasketContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,7 +29,8 @@ function RootLayoutContent({ children }) {
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white `}
-      >
+      > 
+      <ToastContainer />
         {!isSpecialPage && (
           <>  
             <TopMenu/>
@@ -49,3 +52,4 @@ export default function RootLayout({ children }) {
     </BasketProvider>
   );
 }
+// hi_}8qOo9s2[

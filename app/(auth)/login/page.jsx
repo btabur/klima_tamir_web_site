@@ -3,11 +3,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
+import { toast } from 'react-toastify'
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
   const router = useRouter();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,22 +26,23 @@ const Login = () => {
         // Giriş başarılı, kullanıcıyı yönlendirin
         console.log(data.user.role);
        if(data.user.role === 'admin') {
-       
+        toast.success('Giriş başarılı');
         localStorage.setItem('Klima_Tamir_userId', data.user._id);
         router.push('/admin/dashboard');
        }else if(data.user.role === 'user'){
         localStorage.setItem('Klima_Tamir_userId', data.user._id);
-      
+        toast.success('Giriş başarılı');
         router.push('/');
        }
        else{
         localStorage.setItem('Klima_Tamir_isAuth', false);
-       setError('Yetkisiz giriş denemesi') 
+     
+       toast.error('Yetkisiz giriş denemesi');
        }
        
     } else {
         // Giriş başarısız, hata mesajını gösterin
-        setError(data.message);
+        toast.error(data.message);
     }
 };
 
@@ -59,7 +60,7 @@ const Login = () => {
           <button type='submit' className='bg-blue-500 text-white p-2 rounded-md'>Giriş Yap</button>
         </form>
         <p className='text-sm text-black mt-5'>Hesabın yok mu? <Link href="/register" className='text-blue-500'  >Kayıt Ol</Link></p>
-      {error && <p className='text-red-500 text-center mt-5'>{error}</p>}
+    
       </section>
     </main>
   )

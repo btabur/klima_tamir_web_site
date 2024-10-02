@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const MONGODB_URL = process.env.MONGODB_WEB;
+const MONGODB_URL = process.env.MONGODB_URL_WEB;
 
 console.log(MONGODB_URL);
 
@@ -14,6 +14,11 @@ const connect = async () => {
 
   if (connectionState === 2) {
     console.log("Connecting...");
+    return;
+  }
+
+  if (!MONGODB_URL) {
+    console.error("MONGODB_URL is not defined");
     return;
   }
 

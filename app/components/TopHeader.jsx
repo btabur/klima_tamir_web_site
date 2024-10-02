@@ -71,7 +71,7 @@ const TopHeader = () => {
             <Link
               href={user.role === "admin" ? "/admin/dashboard" : "/profile"}
             >
-              <button className="flex items-center gap-2 border py-1 px-2 rounded-lg hover:bg-blue-500 hover:text-white transition-all">
+              <button className="flex items-center text-black gap-2 border-2 py-1 px-2 rounded-lg hover:bg-blue-500 hover:text-white transition-all">
                 <IoPersonCircleOutline className="lg:text-2xl text-sm" />
                 <p>{user.username}</p>
               </button>
@@ -79,7 +79,7 @@ const TopHeader = () => {
           ) : (
             <Link href="/login">
               <button
-                className=" rounded-lg lg:px-4 lg:py-2 px-2 py-1 bg-blue-500 text-white
+                className=" rounded-lg lg:px-4 lg:py-2 px-2 py-1 bg-blue-500 text-black
             hover:bg-blue-600 hover:text-white transition-all"
               >
                 Giriş Yap
@@ -96,7 +96,7 @@ const TopHeader = () => {
             }}
             className="relative"
           >
-            <MdOutlineShoppingCart className="text-2xl " />
+            <MdOutlineShoppingCart className="text-2xl text-black" />
             <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1 rounded-full">
               {state.basket.length}
             </span>

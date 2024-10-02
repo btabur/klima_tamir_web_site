@@ -34,8 +34,8 @@ const Basket = () => {
     }))
   }
   return (
-    <section className='absolute top-0 right-0 w-full h-full z-50 bg-black/50 flex justify-center items-center'>
-        <article className='bg-white w-full max-w-md h-full max-h-[95%] overflow-y-auto'>
+    <section className='fixed top-18 left-0 w-full  min-h-screen z-50 bg-black/50 text-black flex justify-center'>
+        <article className='bg-white w-full max-w-md max-h-[80vh] overflow-y-auto'>
             <header className='flex justify-between items-center px-4 py-2 bg-gray-200'>
                 <h3 className='text-lg font-bold'>Sepetim</h3>
                 <button onClick={() => {
@@ -44,8 +44,9 @@ const Basket = () => {
             </header>
             <div className='p-4'>
                 {state.basket.map((item) => (
-                    <div key={item.id} className='flex justify-between items-center border-b border-gray-200 py-2'>
+                    <div key={item.id} className='flex justify-between items-center border-b text-black border-gray-200 py-2'>
                         <p className='text-sm font-bold w-20'>{item.name}</p>
+
                         <Image className='w-10 h-10' src={item.image} alt={item.name} width={100} height={100} />
                        <div className='flex items-center gap-2  '>
                         <button 
@@ -60,14 +61,16 @@ const Basket = () => {
                             handleRemoveFromBasket(item)
                         }}>-</button>
                        </div>
+                       <p>{item.price * item.piece} TL</p>
                         <button onClick={() => {
                            handleDeleteFromBasket(item)
                         }}><MdDelete />
                         </button>
                     </div>
+                    
                 ))}
             </div>
-            <div className='flex justify-between items-center p-4'>
+            <div className='flex justify-between items-center p-4 text-black'>
                 <p><b>Toplam Fiyat:</b> {state.basket.reduce((acc, item) => acc + item.price * item.piece, 0)} TL</p>
                 <button className='bg-blue-500 text-white px-4 py-2 rounded-md'>Ödeme Yap</button>
             </div>

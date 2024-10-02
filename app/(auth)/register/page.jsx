@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
+import { toast } from 'react-toastify';
 
 const Register = () => {
   const [username, setUsername] = useState('');
@@ -22,11 +23,14 @@ const Register = () => {
       });
       if (res.ok) {
         router.push("/login");
+        toast.success('Kayıt başarılı');
       } else {
         throw new Error("Failed to register");
+        toast.error('Kayıt başarısız');
       }
     } catch (error) {
-      console.log(error);
+   
+      toast.error(error.message);
     }
   };
 
