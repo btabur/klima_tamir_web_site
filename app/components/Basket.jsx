@@ -2,6 +2,7 @@ import React from 'react'
 import { useBasketContext } from '../context/BasketContext'
 import Image from 'next/image'
 import { MdDelete } from "react-icons/md";
+import { IoIosCloseCircleOutline } from "react-icons/io";
 
 const Basket = () => {
   const { state, setState } = useBasketContext()
@@ -34,13 +35,15 @@ const Basket = () => {
     }))
   }
   return (
-    <section className='fixed top-18 left-0 w-full  min-h-screen z-50 bg-black/50 text-black flex justify-center'>
-        <article className='bg-white w-full max-w-md max-h-[80vh] overflow-y-auto'>
-            <header className='flex justify-between items-center px-4 py-2 bg-gray-200'>
+    <section className='fixed top-18 left-0 w-full rounded-lg shadow-lg  min-h-screen z-50 bg-black/50 text-black flex justify-center'>
+        <article className='bg-white w-full max-w-md max-h-[80vh] overflow-y-auto rounded-lg'>
+            <header className='flex justify-between items-center px-4 py-2 bg-blue-700 text-white font-semibold'>
                 <h3 className='text-lg font-bold'>Sepetim</h3>
-                <button onClick={() => {
+                <button className='text-3xl' onClick={() => {
                     setState((prevState) => ({...prevState, isShowBasketModal: false}))
-                }}>Kapat</button>
+                }}>
+                    <IoIosCloseCircleOutline />
+                </button>
             </header>
             <div className='p-4'>
                 {state.basket.map((item) => (
@@ -69,11 +72,12 @@ const Basket = () => {
                     </div>
                     
                 ))}
+                {state.basket.length === 0 && <p>Sepetinizde ürün yok</p>}
             </div>
-            <div className='flex justify-between items-center p-4 text-black'>
+          {state.basket.length > 0 && <div className='flex justify-between items-center p-4 text-black'>
                 <p><b>Toplam Fiyat:</b> {state.basket.reduce((acc, item) => acc + item.price * item.piece, 0)} TL</p>
                 <button className='bg-blue-500 text-white px-4 py-2 rounded-md'>Ödeme Yap</button>
-            </div>
+            </div>}
         </article>
     </section>
   )
