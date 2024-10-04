@@ -21,7 +21,10 @@ const TopHeader = () => {
   const userId = localStorage.getItem("Klima_Tamir_userId");
   useEffect(() => {
     const fetchUser = async () => {
-      if (!userId) return;
+      if (!userId) {
+        setUser(null);
+        return;
+      }
 
       try {
         const response = await fetch(`/api/users?userId=${userId}`);
@@ -32,10 +35,23 @@ const TopHeader = () => {
         setUser(data);
       } catch (error) {
         console.error("Kullanıcı bilgileri alınamadı:", error);
+        setUser(null);
       }
     };
 
     fetchUser();
+
+    // Çıkış yapıldığında tetiklenecek event listener
+    const handleLogout = () => {
+      setUser(null);
+    };
+
+    window.addEventListener('userLoggedOut', handleLogout);
+
+    // Cleanup function
+    return () => {
+      window.removeEventListener('userLoggedOut', handleLogout);
+    };
   }, [userId]);
 
   return (
