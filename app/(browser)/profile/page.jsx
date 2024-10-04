@@ -41,7 +41,36 @@ const ProfilPage = () => {
         window.dispatchEvent(new Event('userLoggedOut'))
         router.push('/')
     }
+    const handleAddToBasket = (item) => {
+        setState((prevState) => ({
+            ...prevState,
+            basket: prevState.basket.map(basketItem => 
+                basketItem._id === item._id 
+                ? { ...basketItem, piece: basketItem.piece +1  } 
+                : basketItem
+            )
+        }))
+      }
+      const handleRemoveFromBasket = (item) => {
+        if(item.piece > 1){
+        setState((prevState) => ({
+            ...prevState,
+            basket: prevState.basket.map(basketItem => 
+                basketItem._id === item._id 
+                ? { ...basketItem, piece: basketItem.piece - 1 } 
+                : basketItem
+            )
+        }))
+    }
+      }
 
+      const handlePayment = () => {
+        if(localStorage.getItem('Klima_Tamir_userId')){
+          router.push('/payment')
+        }else{
+          router.push('/login')
+        }
+      }
   return (
     <section className='flex text-black px-20 items-start justify-start h-screen'>
        <article className='w-1/6 pl-5 flex flex-col items-start justify-start h-screen '>
@@ -63,13 +92,25 @@ const ProfilPage = () => {
                 <h2 className='text-2xl font-bold border-b-2 border-blue-500 pl-3 w-full'>{
                  active}</h2>
                     <div className='w-full px-10'>
-                            {active === 'Sepetim' && state.basket.map((item) => (
+                            {active === 'Sepetim' && state.basket.length > 0 && state.basket.map((item) => (
                             <div key={item.id} className='flex justify-between items-center border-b text-black border-gray-200 py-2'>
                                 <p className='text-sm font-bold w-20'>{item.name}</p>
 
                                 <Image className='w-20 h-20' src={item.image} alt={item.name} width={100} height={100} />
                                
-                                <p>{item.piece}</p>
+                                <div className='flex items-center gap-2  '>
+                                    <button 
+                                    className='bg-blue-500 text-white   py-1 px-2 rounded-md'
+                                    onClick={() => {
+                                        handleAddToBasket(item)
+                                    }}>+</button>
+                                    <p>{item.piece}</p>
+                                    <button 
+                                    className='bg-red-500 text-white  py-1 px-2 rounded-md'
+                                    onClick={() => {
+                                        handleRemoveFromBasket(item)
+                                    }}>-</button>
+                             </div>
                        
                             <p>{item.price * item.piece} TL</p>
                                 <button onClick={() => {
@@ -79,6 +120,10 @@ const ProfilPage = () => {
                             </div>
                             
                         ))}
+                        {state.basket.length > 0 && <div className='flex justify-between items-center p-4 text-black'>
+                            <p><b>Toplam Fiyat:</b> {state.basket.reduce((acc, item) => acc + item.price * item.piece, 0)} TL</p>
+                            <button onClick={()=>handlePayment()} className='bg-blue-500 text-white px-4 py-2 rounded-md'>Ödeme Yap</button>
+                        </div>}
                         {active === 'Siparişlerim' && <div className='w-full h-full flex items-center justify-center'>
                             <p>Siparişlerim</p>
                             </div>}
