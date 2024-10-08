@@ -5,8 +5,7 @@ export const menuItems = [
   { href: "/products", label: "Ürünlerimiz" },
   { href: "/klima-tamir", label: "Klima Tamiri" },
   { href: "/klima-arıza", label: "Klima Arıza" },
-
-  { href: "/havalandirma-sistemleri", label: "Havalandırma Sistemler" },
+  { href: "/havalandirma-sistemleri", label: "Havalandırma Sistemleri" },
 
   { href: "/iletisim", label: "İletişim" },
 ];

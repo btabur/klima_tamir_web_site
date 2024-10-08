@@ -8,7 +8,7 @@ import { FaHandshakeAngle, FaHandsAslInterpreting } from "react-icons/fa6";
 
 const Policies = () => {
   return (
-    <div className="flex flex-wrap items-center justify-center bg-slate-300 w-full">
+    <div className="flex flex-wrap items-center justify-center bg-indigo-50 w-full">
       <div className="flex flex-col items-center justify-center mt-14">
         <h2 className="font-serif lg:text-5xl text-3xl border-solid">
           Hizmet Politakalarımız
