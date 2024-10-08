@@ -3,6 +3,7 @@ import { FaHome } from "react-icons/fa";
 import { GiMoebiusStar } from "react-icons/gi";
 import { AiOutlineFundProjectionScreen } from "react-icons/ai";
 import { FaScrewdriverWrench } from "react-icons/fa6";
+import { TbTopologyStar2 } from "react-icons/tb";
 
 const Ventilation = () => {
   return (
@@ -110,7 +111,7 @@ const Ventilation = () => {
             </p>
           </div>
         </div>
-        <div className="flex items-center justify-center w-full bg-indigo-50 ">
+        <div className="relative flex items-center justify-center w-full bg-slate-200 bg-cover bg-center bg-no-repeat ">
           <article className="flex items-center justify-between w-full text-black text-center flex-col  m-8">
             <div className=" m-10 ml-12">
               <h1 className="font-bold font-tinos text-4xl text-center  mb-2">
@@ -119,11 +120,12 @@ const Ventilation = () => {
               <hr className="w-36  border-2  border-yellow-500 rounded-md mx-auto mt-0 mb-6" />
 
               <h5 className="text-xl text-zinc-600 font-serif">
-                Uzman ekibimizle, yüksek kaliteli hizmetler sunarak
-                beklentilerinizi karşılıyoruz. Yenilikçi çözümlerimizle, size en
-                iyi deneyimi yaşatmayı hedefliyoruz. Hızlı ve etkili hizmet
-                anlayışımızla her zaman yanınızdayız. Bizimle çalışarak,
-                güvenilir ve profesyonel bir destek almanın rahatlığını yaşayın!
+                Ünsal Teknik olarak havalandırma sistemlerine uzman ekibimizle,
+                yüksek kaliteli hizmetler sunarak beklentilerinizi karşılıyoruz.
+                Yenilikçi çözümlerimizle, size en iyi deneyimi yaşatmayı
+                hedefliyoruz. Hızlı ve etkili hizmet anlayışımızla her zaman
+                yanınızdayız. Bizimle çalışarak, güvenilir ve profesyonel bir
+                destek almanın rahatlığını yaşayın!
               </h5>
             </div>
             <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 items-start justify-center w-full  text-center md:gap-12 my-12  ">
@@ -137,7 +139,7 @@ const Ventilation = () => {
               </div>
               <div class="flex justify-center items-center    flex-col hover:text-blue-500 mb-12">
                 <i class="flex justify-center items-center text-6xl  text-white bg-violet-900 hover:bg-blue-500 hover:shadow-[0_0_8px_12px_rgba(59,130,246,0.5)] transition-all duration-300 rounded-full  w-32 h-32 hover:w-28 hover:h-28   ">
-                  <GiMoebiusStar />
+                  <TbTopologyStar2 />
                 </i>
                 <h3 className="text-center text-xl font-serif mt-9">Üretim</h3>
               </div>
