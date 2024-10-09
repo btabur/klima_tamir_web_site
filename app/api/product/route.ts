@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import connect from "../../lib/db";
-import Category from "../../lib/modals/category"
+
 import Product from "../../lib/modals/product"
 import { Types } from "mongoose";
 

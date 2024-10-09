@@ -37,6 +37,7 @@ const Basket = () => {
     }))
   }
   const handlePayment = () => {
+      setState((prevState) => ({...prevState, isShowBasketModal: false}))
     if(localStorage.getItem('Klima_Tamir_userId')){
       router.push('/payment')
     }else{

@@ -18,7 +18,7 @@ const TopHeader = () => {
   const { state = {}, setState } = basketContext || {};
   const [user, setUser] = useState(null);
 
-  const userId = localStorage.getItem("Klima_Tamir_userId");
+  const userId = typeof window !== 'undefined' ? localStorage.getItem("Klima_Tamir_userId") : null;
   useEffect(() => {
     const fetchUser = async () => {
       if (!userId) {

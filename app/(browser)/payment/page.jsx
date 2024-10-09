@@ -12,7 +12,7 @@ const PaymentPage = () => {
         <div>
             <button className='bg-[#ff8000] text-white font-semibold px-4 py-2 rounded-lg'>Yeni Adres +</button>
             {/* card */}
-            <div className='w-1/2 mt-5 flex flex-col gap-2 bg-white border rounded-lg  shadow-lg'>
+            <div className='w-1/2 mt-5 flex flex-col gap-2 bg-white text-black border rounded-lg  shadow-lg'>
             {/* card header */}
                 <div className='flex items-center justify-between border-b border-[#ff8000] pb-2 pt-2 px-4'>
                     <p>UserName</p>
@@ -28,6 +28,7 @@ const PaymentPage = () => {
                 {/* card body */}
                 <div className='p-2'>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt, doloribus?</p>
+                    <p>İstanbul/Maltepe</p>
                     <p className='text-sm text-gray-500 mt-4'>0555 555 55 55</p>
                 </div>
                 {/* card footer */}
