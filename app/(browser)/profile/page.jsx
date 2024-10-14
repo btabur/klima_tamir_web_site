@@ -76,13 +76,17 @@ const ProfilPage = () => {
        <article className='w-1/6 pl-5 flex flex-col items-start justify-start h-screen '>
         <p className='mt-5 border py-2 pl-2 pr-16  rounded-lg'>{user?.username}</p>
         <div className='flex flex-col items-start justify-start mt-5 border    rounded-lg '>
-            <button onClick={()=>setActive('Sepetim')} className='border-b py-2 cursor-pointer pl-2 pr-16 w-full hover:bg-blue-500 hover:text-white'>Sepetim</button>
-            <button onClick={()=>setActive('Siparişlerim')} className='border-b py-2 cursor-pointer pl-2 pr-16 w-full hover:bg-blue-500 hover:text-white'>Siparişlerim</button>
-            <button onClick={()=>setActive('Adreslerim')} className='border-b py-2 cursor-pointer pl-2 pr-16 w-full hover:bg-blue-500 hover:text-white'>Adreslerim</button>
-            <button onClick={()=>setActive('Ayarlar')} className='border-b py-2 cursor-pointer pl-2 pr-16 w-full hover:bg-blue-500 hover:text-white'>Ayarlar</button>
+            <button onClick={()=>setActive('Sepetim')} className={`border-b py-2 cursor-pointer pl-2 pr-16 w-full hover:bg-gray-500 hover:text-white
+               ${active=='Sepetim' ? 'bg-blue-500 text-white rounded-tl-lg rounded-tr-lg' : ''}`}>Sepetim</button>
+            <button onClick={()=>setActive('Siparişlerim')} className={`border-b py-2 cursor-pointer pl-2 pr-16 w-full hover:bg-gray-500 hover:text-white 
+              ${active=='Siparişlerim' ? 'bg-blue-500 text-white' : ''}`}>Siparişlerim</button>
+            <button onClick={()=>setActive('Adreslerim')} className={`border-b py-2 cursor-pointer pl-2 pr-16 w-full hover:bg-gray-500 hover:text-white 
+              ${active=='Adreslerim' ? 'bg-blue-500 text-white ' : ''}`}>Adreslerim</button>
+            <button onClick={()=>setActive('Ayarlar')} className={`border-b py-2 cursor-pointer pl-2 pr-16 w-full hover:bg-gray-500 hover:text-white 
+              ${active=='Ayarlar' ? 'bg-blue-500 text-white ' : ''}`}>Ayarlar</button>
             <button
             onClick={()=>handleLogOut()}
-             className='border-b py-2 cursor-pointer text-xl font-semibold text-center  px-8 w-full hover:bg-blue-500 hover:text-white'>
+             className='border-b py-2 cursor-pointer text-xl font-semibold text-center  px-8 w-full hover:bg-gray-500 hover:text-white'>
             <CiLogout className='w-full'/>
             </button>
         </div>
