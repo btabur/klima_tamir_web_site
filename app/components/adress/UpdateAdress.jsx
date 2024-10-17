@@ -14,20 +14,7 @@ const UpdateAdress = ({setIsShowupdateAdressModal,updateAdres,setIsGetAdress}) =
     address: updateAdres.description,
     phone: updateAdres.phone
   });
-  const [userId,setUserId]=useState(null)
-  const [user,setUser]=useState(null)
-  useEffect(()=> {
-    const user = localStorage.getItem('Klima_Tamir_userId')
-      setUserId(user)
-  },[])
-  useEffect(()=> {
-    if(userId){
-      axios.get(`/api/users?userId=${userId}`)
-      .then((res)=> setUser(res.data))
-    }
-  },[userId])
-
-  
+ 
   // Form verilerini güncelleyen fonksiyon
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -53,7 +40,7 @@ const UpdateAdress = ({setIsShowupdateAdressModal,updateAdres,setIsGetAdress}) =
               mah:formData.mah,
               description:formData.address,
               phone:formData.phone,
-              userId:userId }),
+              userId:formData.userId }),
         }).then(()=> {
           toast.success('Adres Kaydedildi');
           setIsShowupdateAdressModal(false);
