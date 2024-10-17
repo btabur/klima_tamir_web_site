@@ -13,8 +13,8 @@ export const POST = async(request:Request)=> {
     try {
 
         const body = await request.json();
-        const {city,town,description,phone,userId} = body;
-        if(!city || !town || !description || !phone || !userId ) {
+        const {name,city,town,mah,description,phone,userId} = body;
+        if(!name ||!city || !town || !description ||!mah || !phone || !userId ) {
             return new NextResponse(JSON.stringify({message:"Tüm bilgileri eksiksiz girin"}),{status:400});
         }
     
@@ -23,7 +23,7 @@ export const POST = async(request:Request)=> {
         if(!Types.ObjectId.isValid(userId)) {
           return new NextResponse(JSON.stringify({message:"Geçersiz user Id si"}),{status:400})
         }
-        const newAdress = new Adress({city,town,description,phone,userId})
+        const newAdress = new Adress({name,city,town,mah,description,phone,userId})
         await newAdress.save();
 
         return new NextResponse(JSON.stringify({message:"Adres oluşturuldu",adres:newAdress}),{status:201});
@@ -82,7 +82,7 @@ export async function GET(request: Request) {
  export const PATCH = async (request: Request) => {
     try {
       const body = await request.json();
-      const { adressId, city, town,description,phone } = body;
+      const { adressId,name, city, town,mah,description,phone } = body;
   
       if (!adressId) {
         return new NextResponse(
@@ -103,11 +103,17 @@ export async function GET(request: Request) {
   
       // Güncellenecek alanları dinamik olarak ayarla
       const updateFields: any = {};
+      if (name) {
+        updateFields.name = name; // Sadece yeni bir isim varsa name alanını güncelle
+      }
       if (city) {
         updateFields.city = city; // Sadece yeni bir isim varsa name alanını güncelle
       }
       if (town) {
         updateFields.town = town; // Sadece yeni bir resim varsa image alanını güncelle
+      }
+      if (mah) {
+        updateFields.mah = mah; // Sadece yeni bir isim varsa name alanını güncelle
       }
       
       if (description) {
